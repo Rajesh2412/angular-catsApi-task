@@ -1,0 +1,32 @@
+<!-- <input type="file" class="file-upload" (change)="imageUploaded($event)"> -->
+<div class="container">
+  <div class="row justify-content-md-center">
+    <h2>Image {{disable ? 'Uploading': 'Uploader'}}</h2>
+    <div class="col md-auto  uploader" id="uploader">
+
+      <!-- Upload  -->
+      <form id="file-upload-form">
+        <input id="file-upload" type="file" name="fileUpload" accept="image/*" (change)="imageUploaded($event)" />
+
+        <label for="file-upload" id="file-drag">
+          <img id="file-image" alt="Preview" class="hidden">
+          <div id="start" [ngClass]="{disable}">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <div>Select a file or drag here</div>
+
+            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+          </div>
+        </label>
+        <p style="color: red; text-align:center" class="alert-msg">{{alert_msg}}</p>
+      </form>
+
+      <div class="lds-ring" *ngIf="disable">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
